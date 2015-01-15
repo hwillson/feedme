@@ -1,2 +1,3 @@
-# rss-simplified
-A Meteor based RSS reader that keeps the focus on reading.
+# RSS Simplified
+
+A [Meteor](http://meteor.com) based distraction free RSS reader that keeps the focus on reading.
