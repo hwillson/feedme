@@ -1,0 +1,12 @@
+<template name="newsItems">
+  <div class="row">
+    <ul>
+      {{#each newsItems}}
+        <li>
+  				<a href="{{url}}">{{title}}</a>
+  				{{content}}
+  			</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
