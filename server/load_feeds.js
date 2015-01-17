@@ -9,7 +9,7 @@ var daringFireballFeed = {
   _id: 'Daring Fireball',
   category: 'Tech News',
   link: 'http://daringfireball.net/feeds/main',
-  refresh_interval: 1000
+  refresh_interval: 1000  // 1 second
 };
 
 Feed.createRssFeed(daringFireballFeed);

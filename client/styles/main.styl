@@ -8,8 +8,12 @@ a {
 	color: #FFF;
 }
 
-a:hover {
+a:hover, a:focus, a:active {
 	color: #FFF;
+}
+
+a:focus, a:active {
+	text-decoration: none;
 }
 
 li {
@@ -22,4 +26,24 @@ li {
 .fe-meta {
 	font-size: 14px;
 	color: #666;
+}
+
+.fe-btn-remove {
+	color: #666;
+	padding-top: 0;
+	padding-bottom: 0;
+	vertical-align: inherit;
+}
+
+.fe-btn-remove:active, .fe-btn-remove:focus {
+	outline-color: #111 !important;
+	color: #666;
+}
+
+.fe-btn-remove:hover {
+	color: #FFF;
+}
+
+.fe-done {
+	color: #FFF;
 }

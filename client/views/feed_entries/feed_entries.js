@@ -6,7 +6,8 @@ Template.feedEntries.helpers({
 	 * @return  Array  Feed entries.
 	 */
 	feedEntries: function () {
-		return FeedEntries.find().map(function (entry) {
+
+		return FeedEntries.find({}, { sort: { date: -1 } }).map(function (entry) {
 
 			if (entry.description) {
 				// Strip HTML
@@ -14,7 +15,7 @@ Template.feedEntries.helpers({
 			}
 
 			if (entry.date) {
-				var formattedDate = moment(entry.data);
+				var formattedDate = moment(entry.date);
 				if (formattedDate.isValid()) {
 					entry.date = formattedDate.format('YYYY-MM-DD');
 				}
@@ -22,6 +23,19 @@ Template.feedEntries.helpers({
 
 			return entry;
 
+		});
+
+	}
+
+});
+
+Template.feedEntries.events({
+
+	// Fade entry row out then remove.
+	'click .js-remove': function (e) {
+		var $entry = $(e.currentTarget).parent().parent();
+    $entry.fadeOut('slow', function () {
+			FeedEntries.remove(this._id);
 		});
 	}
 
