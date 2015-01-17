@@ -1,0 +1,15 @@
+<template name="feedEntries">
+  <div class="row">
+    <ul>
+      {{#each feedEntries}}
+        <li>
+  				<a href="{{link}}">{{title}}</a>:
+  				{{{description}}}
+          <p class="fe-meta">
+            {{feed_id}}, {{date}}
+          </p>
+  			</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
