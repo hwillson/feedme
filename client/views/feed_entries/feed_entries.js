@@ -1,3 +1,10 @@
+Template.feedEntries.created = function () {
+	Meteor.Keybindings.addOne('d', function() {
+		var mostRecentEntry = FeedEntries.findOne({}, { sort: { date: -1 } });
+		FeedEntries.remove(mostRecentEntry._id);
+	});
+};
+
 Template.feedEntries.helpers({
 
 	/**

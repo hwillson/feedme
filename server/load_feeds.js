@@ -23,4 +23,13 @@ var sixColorsFeed = {
 
 Feed.createRssFeed(sixColorsFeed);
 
+var marcoFeed = {
+  _id: 'Marco',
+  category: 'Tech News',
+  link: 'http://www.marco.org/rss',
+  refresh_interval: 1000
+};
+
+Feed.createRssFeed(marcoFeed);
+
 Feed.read();
