@@ -1,4 +1,5 @@
 Template.feedEntries.created = function () {
+	// Wire up 'd' keybinding to remove the most recent feed entry.
 	Meteor.Keybindings.addOne('d', function() {
 		var mostRecentEntry = FeedEntries.findOne({}, { sort: { date: -1 } });
 		FeedEntries.remove(mostRecentEntry._id);
