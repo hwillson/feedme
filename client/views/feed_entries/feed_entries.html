@@ -1,24 +1,13 @@
 <template name="feedEntries">
   <div class="row">
-    {{#unless feedEntries}}
-      <p class="fe-done">
-        <i class="fa fa-child"></i> Nice - all caught up.
-      </p>
-    {{else}}
-      <ul>
-        {{#each feedEntries}}
-          <li>
-    				<a href="{{link}}" target="_blank">{{title}}</a>:
-    				{{{description}}}
-            <div class="fe-meta">
-              {{feed_id}}, {{date}}
-              <button class="btn btn-link fe-btn-remove js-remove">
-                <i class="fa fa-check-square-o"></i>
-              </button>
-            </div>
-    			</li>
-        {{/each}}
-      </ul>
-    {{/unless}}
+    <ul>
+      {{#each feedEntries}}
+        {{> feedEntry}}
+      {{else}}
+        <li class="fe-done">
+          <i class="fa fa-child"></i> Nice - all caught up.
+        </li>
+      {{/each}}
+    </ul>
   </div>
 </template>

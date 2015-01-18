@@ -1,0 +1,12 @@
+<template name="feedEntry">
+	<li>
+		<a href="{{link}}" target="_blank">{{title}}</a>:
+		{{{description}}}
+		<div class="fe-meta">
+			{{feed_id}}, {{date}}
+			<button class="btn btn-link fe-btn-remove js-remove">
+				<i class="fa fa-check-square-o"></i>
+			</button>
+		</div>
+	</li>
+</template>

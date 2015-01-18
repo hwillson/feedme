@@ -3,7 +3,7 @@ Template.feedEntries.helpers({
 	/**
 	 * Get all feed entries.
 	 *
-	 * @return  Array  Feed entries.
+	 * @return  {Array}  Feed entries.
 	 */
 	feedEntries: function () {
 
@@ -31,12 +31,8 @@ Template.feedEntries.helpers({
 
 Template.feedEntries.events({
 
-	// Fade entry row out then remove.
 	'click .js-remove': function (e) {
-		var $entry = $(e.currentTarget).parent().parent();
-    $entry.fadeOut('slow', function () {
-			FeedEntries.remove(this._id);
-		});
+		FeedEntries.remove(this._id);
 	}
 
 });
