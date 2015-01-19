@@ -1,3 +1,7 @@
+$colorContent = #333;
+$colorLink = #222;
+$colorMeta = #666;
+
 @font-face {
   font-family: AileronLight;
   src: url("fonts/Aileron-Light.otf") format("opentype");
@@ -8,55 +12,64 @@
   src: url("fonts/Aileron-Thin.otf") format("opentype");
 }
 
+@font-face {
+  font-family: AileronHeavy;
+  src: url("fonts/Aileron-Heavy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: AileronRegular;
+  src: url("fonts/Aileron-Regular.otf") format("opentype");
+}
+
 body {
-	background-color: #111;
+	background-color: #FFF;
 	font-size: 20px;
 	margin-top: 30px;
-	font-family: AileronThin;
+	font-family: AileronRegular;
 	letter-spacing: 0.04em;
+	color: $colorContent
 }
 
 a {
-	color: #FFF;
-	font-family: AileronLight;
+	color: $colorLink
+	font-family: AileronHeavy;
 }
 
 a:hover, a:focus, a:active {
-	color: #FFF;
-}
-
-a:focus, a:active {
+	color: $colorLink
 	text-decoration: none;
 }
 
-li {
-	color: #BBB;
-	list-style: none;
-	margin: 20px 0;
-	line-height: 30px;
+.fe-row {
+	margin-bottom: 40px;
+}
+
+.fe-title {
+	text-align: right;
+	border-right: 5px solid $colorLink
 }
 
 .fe-meta {
 	font-size: 14px;
-	color: #666;
+	color: $colorMeta
 }
 
 .fe-btn-remove {
-	color: #666;
+	color: $colorMeta
 	padding-top: 0;
-	padding-bottom: 0;
-	vertical-align: inherit;
+	padding-right: 0;
 }
 
 .fe-btn-remove:active, .fe-btn-remove:focus {
-	outline-color: #111 !important;
-	color: #666;
+	outline-color: $colorMeta
+	color: $colorMeta
 }
 
 .fe-btn-remove:hover {
-	color: #FFF;
+	color: $colorLink
 }
 
 .fe-done {
-	color: #FFF;
+	color: $colorLink
 }

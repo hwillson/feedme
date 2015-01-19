@@ -1,13 +1,9 @@
 <template name="feedEntries">
-  <div class="row">
-    <ul>
-      {{#each feedEntries}}
-        {{> feedEntry}}
-      {{else}}
-        <li class="fe-done">
-          <i class="fa fa-child"></i> Nice - all caught up.
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+  {{#each feedEntries}}
+    {{> feedEntry}}
+  {{else}}
+    <div class="row fe-done">
+      <i class="fa fa-child"></i> Nice - all caught up.
+    </div>
+  {{/each}}
 </template>
