@@ -35,7 +35,14 @@ var recodeFeed = {
   link: 'http://recode.net/feed/',
   refresh_interval: 1000
 };
-
 Feed.createRssFeed(recodeFeed);
+
+var vergeFeed = {
+  _id: 'The Verge',
+  category: 'Tech News',
+  link: 'http://www.theverge.com/rss/frontpage',
+  refresh_interval: 1000
+};
+Feed.createRssFeed(vergeFeed);
 
 Feed.read();

@@ -1,0 +1,40 @@
+#login-buttons a {
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.accounts-dialog {
+	margin-top: 5px;
+	border-radius: 0;
+	box-shadow: none;
+	border: 1px solid $colorContent
+	text-align: left;
+}
+
+#login-buttons .login-button, .accounts-dialog .login-button {
+	background-color: $colorContent
+	border: 1px solid $colorContent
+	border-radius: 0;
+}
+
+#login-buttons .login-button:hover, .accounts-dialog .login-button:hover {
+	background-color: $colorButtonHover
+}
+
+#login-buttons .login-button {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.accounts-dialog label {
+	font-weight: bold;
+}
+
+#login-buttons input[type=text],
+.accounts-dialog input[type=text],
+#login-buttons input[type=email],
+.accounts-dialog input[type=email],
+#login-buttons input[type=password],
+.accounts-dialog input[type=password] {
+	border-radius: 0;
+}

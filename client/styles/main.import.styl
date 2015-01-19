@@ -1,7 +1,3 @@
-$colorContent = #333;
-$colorLink = #222;
-$colorMeta = #666;
-
 @font-face {
   font-family: AileronLight;
   src: url("fonts/Aileron-Light.otf") format("opentype");
@@ -25,10 +21,10 @@ $colorMeta = #666;
 body {
 	background-color: #FFF;
 	font-size: 20px;
-	margin-top: 30px;
 	font-family: AileronRegular;
-	letter-spacing: 0.04em;
+	letter-spacing: 0.02em;
 	color: $colorContent
+	margin-top: 5px;
 }
 
 a {
@@ -39,6 +35,11 @@ a {
 a:hover, a:focus, a:active {
 	color: $colorLink
 	text-decoration: none;
+}
+
+.fe-list {
+	margin-top: 40px;
+	margin-bottom: 80px;
 }
 
 .fe-row {
