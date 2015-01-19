@@ -11,7 +11,6 @@ var daringFireballFeed = {
   link: 'http://daringfireball.net/feeds/main',
   refresh_interval: 1000  // 1 second
 };
-
 Feed.createRssFeed(daringFireballFeed);
 
 var sixColorsFeed = {
@@ -20,7 +19,6 @@ var sixColorsFeed = {
   link: 'http://feedpress.me/sixcolors?type=xml',
   refresh_interval: 1000
 };
-
 Feed.createRssFeed(sixColorsFeed);
 
 var marcoFeed = {
@@ -29,7 +27,15 @@ var marcoFeed = {
   link: 'http://www.marco.org/rss',
   refresh_interval: 1000
 };
-
 Feed.createRssFeed(marcoFeed);
+
+var recodeFeed = {
+  _id: 'Recode',
+  category: 'Tech News',
+  link: 'http://recode.net/feed/',
+  refresh_interval: 1000
+};
+
+Feed.createRssFeed(recodeFeed);
 
 Feed.read();
