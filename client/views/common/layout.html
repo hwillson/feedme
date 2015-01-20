@@ -1,14 +1,13 @@
 <template name="layout">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 text-right">
+      <div class="col-md-12 tm text-right">
+        {{#if currentUser}}
+          <a href="#" class="js-edit-feeds"><i class="fa fa-gear"></i></a> |
+        {{/if}}
         {{> loginButtons align="right"}}
       </div>
     </div>
-
-
-
-
     {{> yield}}
   </div>
 </template>

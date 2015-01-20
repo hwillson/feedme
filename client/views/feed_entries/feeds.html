@@ -1,0 +1,26 @@
+<template name="feeds">
+  <div class="modal fm">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header fm-header">
+					<h1 class="fm-title">Feeds</h1>
+        </div>
+        <div class="modal-body">
+				  <ul class="fm-feeds">
+				    {{#each feeds}}
+				      {{> feed}}
+				    {{else}}
+				      <li class="fm-feeds-none">
+				        None.
+				      </li>
+				    {{/each}}
+					</ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"
+						data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
