@@ -1,5 +1,15 @@
 <template name="feed">
-	<li>
-		{{_id}}
-	</li>
+	<tr>
+		<td>{{_id}}</td>
+		<td>{{category}}</td>
+		<td>{{link}}</td>
+		<td>
+		  <button type="button" class="btn btn-primary btn-sm">
+				<i class="fa fa-edit"></i>
+			</button>
+			<button type="button" class="btn btn-danger btn-sm">
+				<i class="fa fa-trash"></i>
+			</button>
+		</td>
+	</tr>
 </template>
