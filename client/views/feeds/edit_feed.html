@@ -1,20 +1,23 @@
 <template name="editFeed">
   <div class="ft">
 		<h2 class="ft-title">Add/Edit Feed</h2>
-		<form role="form">
-		  <div class="form-group">
-		    <label for="name">Name</label>
-		    <input type="text" class="form-control" id="name">
-		  </div>
-		  <div class="form-group">
-		    <label for="category">Category</label>
-		    <input type="text" class="form-control" id="category">
-		  </div>
-		  <div class="form-group">
-		    <label for="link">Feed URL</label>
-		    <input type="text" class="form-control" id="link">
-		  </div>
-		  <button type="submit" class="btn btn-default">Submit</button>
-		</form>
+    {{#with feed}}
+  		<form role="form">
+  		  <div class="form-group">
+  		    <label for="name">Name</label>
+  		    <input type="text" class="form-control" id="name" value="{{_id}}">
+  		  </div>
+  		  <div class="form-group">
+  		    <label for="category">Category</label>
+  		    <input type="text" class="form-control" id="category"
+            value="{{category}}">
+  		  </div>
+  		  <div class="form-group">
+  		    <label for="link">Feed URL</label>
+  		    <input type="text" class="form-control" id="link" value="{{link}}">
+  		  </div>
+  		  <button type="submit" class="btn btn-default">Submit</button>
+  		</form>
+    {{/with}}
 	</div>
 </template>
