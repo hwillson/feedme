@@ -1,5 +1,15 @@
 Template.editFeed.helpers({
-  feed: function () {
-    return Feeds.findOne(Session.get('feedId'));
+
+  selectedFeed: function () {
+    return Feeds.findOne(Session.get('selectedFeedId'));
   }
+
+});
+
+Template.editFeed.events({
+
+	'click .js-clear-feed': function (e) {
+		Session.set('selectedFeedId', undefined);
+	}
+
 });

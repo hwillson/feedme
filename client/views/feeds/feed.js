@@ -1,7 +1,7 @@
 Template.feed.events({
 
 	'click .js-edit-feed': function (e) {
-		Session.set('feedId', this._id);
+		Session.set('selectedFeedId', this._id);
 	}
 
 });
