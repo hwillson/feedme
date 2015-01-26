@@ -2,6 +2,11 @@ Feeds = new Meteor.Collection('feeds');
 Feeds.attachSchema(new SimpleSchema({
   _id: {
     type: String,
+    label: '_id',
+    max: 100
+  },
+  name: {
+    type: String,
     label: 'Name',
     max: 100
   },

@@ -5,7 +5,7 @@
       {{#autoForm collection="Feeds" doc=selectedFeed id="edit-feed-form"
           type="update"}}
         <fieldset>
-          {{> afQuickField name="_id"}}
+          {{> afQuickField name="name"}}
           {{> afQuickField name="category"}}
           {{> afQuickField name="link"}}
         </fieldset>
@@ -20,7 +20,7 @@
       <h2 class="ft-title">Add Feed</h2>
       {{#autoForm collection="Feeds" id="add-feed-form" type="insert"}}
         <fieldset>
-          {{> afQuickField name="_id"}}
+          {{> afQuickField name="name"}}
           {{> afQuickField name="category"}}
           {{> afQuickField name="link"}}
         </fieldset>
