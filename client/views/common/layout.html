@@ -1,7 +1,14 @@
 <template name="layout">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 tm text-right">
+    <div class="row tm">
+      <div class="col-md-offset-2 col-md-2">
+        <span class="tm-unread">{{feedEntryCount}} unread</span> |
+        <button type="button"
+            class="btn btn-link tm-remove-all-btn js-remove-all">
+          <i class="fa fa-check"></i>
+        </button>
+      </div>
+      <div class="col-md-8 text-right">
         {{#if currentUser}}
           <a href="#" class="js-edit-feeds"><i class="fa fa-gear"></i></a> |
         {{/if}}
