@@ -1,14 +1,13 @@
 Feeds = new Meteor.Collection('feeds');
+
 Feeds.attachSchema(new SimpleSchema({
   _id: {
     type: String,
-    label: '_id',
-    max: 100
+    label: '_id'
   },
   name: {
     type: String,
-    label: 'Name',
-    max: 100
+    label: 'Name'
   },
   category: {
     type: String,
@@ -18,5 +17,13 @@ Feeds.attachSchema(new SimpleSchema({
     type: String,
     label: 'Feed URL',
     regEx: SimpleSchema.RegEx.Url
+  },
+  refresh_interval: {
+    type: Number,
+    label: 'Refresh Interval'
+  },
+  type: {
+    type: String,
+    label: 'Feed Type'
   }
 }));
