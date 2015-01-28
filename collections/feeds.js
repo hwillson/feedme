@@ -1,10 +1,10 @@
-Feeds = new Meteor.Collection('feeds');
+Feeds = new Mongo.Collection('feeds');
 
 Feeds.attachSchema(new SimpleSchema({
-  _id: {
-    type: String,
-    label: '_id'
-  },
+  // _id: {
+  //   type: String,
+  //   label: '_id'
+  // },
   name: {
     type: String,
     label: 'Name'
@@ -20,10 +20,12 @@ Feeds.attachSchema(new SimpleSchema({
   },
   refresh_interval: {
     type: Number,
-    label: 'Refresh Interval'
+    label: 'Refresh Interval',
+    optional: true
   },
   type: {
     type: String,
-    label: 'Feed Type'
+    label: 'Feed Type',
+    defaultValue: 'Rss'
   }
 }));

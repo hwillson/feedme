@@ -13,3 +13,11 @@ Template.editFeed.events({
 	}
 
 });
+
+AutoForm.hooks({
+  feedForm: {
+    onSuccess: function (operation, result, template) {
+      Meteor.call('refreshFeeds');
+    }
+  }
+});

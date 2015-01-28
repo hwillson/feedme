@@ -1,1 +1,1 @@
-FeedEntries = new Meteor.Collection('feed_entries');
+FeedEntries = new Mongo.Collection('feed_entries');
