@@ -6,7 +6,6 @@ Template.layout.helpers({
 
 });
 
-
 Template.layout.events({
 
 	'click .js-edit-feeds': function (e) {
