@@ -1,7 +1,11 @@
 Meteor.methods({
 
-  removeAllFeedEntries: function() {
+  removeAllFeedEntries: function () {
     return FeedEntries.remove({});
+  },
+
+  removeFeedEntriesForFeed: function (feedId) {
+    FeedEntries.remove({ feed_id: feedId });
   }
 
 });

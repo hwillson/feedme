@@ -8,6 +8,7 @@ Template.feed.events({
     e.preventDefault();
     if (confirm('Are you sure you want to delete this feed?')) {
       Feeds.remove(this._id);
+			Meteor.call('removeFeedEntriesForFeed', this._id);
     }
   }
 
