@@ -52,6 +52,7 @@ Meteor.startup(function () {
 	}
 
 	// Update all feeds and entries, starting the re-occuring refresh
-	Feed.read();
+	//Feed.read();
+	Meteor.call('refreshFeeds');
 
 });
