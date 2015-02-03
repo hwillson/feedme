@@ -14,7 +14,8 @@ Meteor.startup(function () {
 			name: 'Daring Fireball',
 		  category: 'Tech News',
 		  link: 'http://daringfireball.net/feeds/main',
-		  refresh_interval: 1000  // 1 second
+			type: 'Atom',
+		  refresh_interval: 600000  // 10 minutes
 		});
 
 		Feed.createRssFeed({
@@ -22,7 +23,7 @@ Meteor.startup(function () {
 			name: 'Six Colors',
 		  category: 'Tech News',
 		  link: 'http://feedpress.me/sixcolors?type=xml',
-		  refresh_interval: 1000
+		  refresh_interval: 600000
 		});
 
 		Feed.createRssFeed({
@@ -30,7 +31,7 @@ Meteor.startup(function () {
 			name: 'Marco',
 		  category: 'Tech News',
 		  link: 'http://www.marco.org/rss',
-		  refresh_interval: 1000
+		  refresh_interval: 600000
 		});
 
 		Feed.createRssFeed({
@@ -38,7 +39,7 @@ Meteor.startup(function () {
 			name: 'Recode',
 		  category: 'Tech News',
 		  link: 'http://recode.net/feed/',
-		  refresh_interval: 1000
+		  refresh_interval: 600000
 		});
 
 		Feed.createRssFeed({
@@ -46,7 +47,23 @@ Meteor.startup(function () {
 			name: 'The Verge',
 		  category: 'Tech News',
 		  link: 'http://www.theverge.com/rss/frontpage',
-		  refresh_interval: 1000
+		  refresh_interval: 600000
+		});
+
+		Feed.createRssFeed({
+		  _id: '6',
+			name: 'MacStories',
+		  category: 'Tech News',
+		  link: 'http://www.macstories.net/feed/',
+		  refresh_interval: 600000
+		});
+
+		Feed.createRssFeed({
+		  _id: '7',
+			name: 'Ars Technica',
+		  category: 'Tech News',
+		  link: 'http://feeds.arstechnica.com/arstechnica/index?format=xml',
+		  refresh_interval: 600000
 		});
 
 	}

@@ -5,7 +5,8 @@ Meteor.methods({
   },
 
   removeFeedEntriesForFeed: function (feedId) {
-    FeedEntries.remove({ feed_id: feedId });
+    // FeedEntries.remove({ feed_id: feedId });
+    FeedEntries.update({}, { $set: { read: true } });
   }
 
 });

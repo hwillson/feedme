@@ -1,7 +1,7 @@
 Template.layout.helpers({
 
 	feedEntryCount: function () {
-		return FeedEntries.find().count();
+		return FeedEntries.find({ read: { $ne: true } }).count();
 	}
 
 });

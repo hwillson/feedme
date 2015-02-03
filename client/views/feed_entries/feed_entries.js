@@ -1,9 +1,17 @@
+function removeFeedEntry(id) {
+	if (id) {
+		FeedEntries.update(id, { $set: { read: true } });
+		//FeedEntries.remove(id);
+	}
+}
+
 Template.feedEntries.created = function () {
 	// Wire up 'd' keybinding to remove the most recent feed entry.
 	Meteor.Keybindings.addOne('d', function() {
-		var mostRecentEntry = FeedEntries.findOne({}, { sort: { date: -1 } });
+		var mostRecentEntry =
+			FeedEntries.findOne({ read: { $ne: true } }, { sort: { date: -1 } });
 		if (mostRecentEntry) {
-			FeedEntries.remove(mostRecentEntry._id);
+			removeFeedEntry(mostRecentEntry._id);
 		}
 	});
 };
@@ -17,7 +25,10 @@ Template.feedEntries.helpers({
 	 */
 	feedEntries: function () {
 
-		return FeedEntries.find({}, { sort: { date: -1 } }).map(function (entry) {
+		var entries =
+			FeedEntries.find({ read: { $ne: true } }, { sort: { date: -1 } });
+
+		return entries.map(function (entry) {
 
 			if (entry.description) {
 				// Strip HTML
@@ -42,7 +53,7 @@ Template.feedEntries.helpers({
 Template.feedEntries.events({
 
 	'click .js-remove': function (e) {
-		FeedEntries.remove(this._id);
+		removeFeedEntry(this._id);
 	}
 
 });
