@@ -3,11 +3,14 @@
     <div class="row tm">
       <div class="col-md-offset-2 col-md-2">
         {{#if currentUser}}
-          <span class="tm-unread">{{feedEntryCount}} unread</span> |
-          <button type="button"
-              class="btn btn-link tm-remove-all-btn js-remove-all">
-            <i class="fa fa-check"></i>
-          </button>
+          <span class="tm-unread">{{feedEntryCount}} unread</span>
+          {{#if showRemoveAllButton}}
+            |
+            <button type="button"
+                class="btn btn-link tm-remove-all-btn js-remove-all">
+              <i class="fa fa-check"></i>
+            </button>
+          {{/if}}
         {{/if}}
       </div>
       <div class="col-md-8 text-right">
