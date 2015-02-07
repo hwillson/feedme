@@ -1,12 +1,12 @@
 Template.layout.helpers({
 
 	feedEntryCount: function () {
-		return FeedEntries.find({ read: { $ne: true } }).count();
+		return FeedEntries.entryCount();
 	},
 
 	showRemoveAllButton: function () {
 		showRemoveAllButton = false;
-		if (FeedEntries.find({ read: { $ne: true } }).count() > 0) {
+		if (FeedEntries.entryCount() > 0) {
 			showRemoveAllButton = true;
 		}
 		return showRemoveAllButton;

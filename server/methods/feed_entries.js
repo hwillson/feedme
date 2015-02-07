@@ -1,12 +1,11 @@
 Meteor.methods({
 
   removeAllFeedEntries: function () {
-    FeedEntries.update({}, { $set: { read: true } }, { multi: true });
-    // return FeedEntries.remove({});
+    FeedEntries.markAllRead();
   },
 
   removeFeedEntriesForFeed: function (feedId) {
-    FeedEntries.remove({ feed_id: feedId });
+    FeedEntries.removeEntriesForFeed
   }
 
 });

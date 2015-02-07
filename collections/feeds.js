@@ -27,5 +27,18 @@ Feeds.attachSchema(new SimpleSchema({
     type: String,
     label: 'Feed Type',
     defaultValue: 'Rss'
+  },
+  user_id: {
+    type: String
   }
 }));
+
+Feeds.authorizedFeedIds = function () {
+  var feedIds = [];
+  var feeds =
+    this.find({ user_id: Meteor.userId() }, { fields: { _id: 1 }}).fetch();
+  _.each(feeds, function (feed) {
+    feedIds.push(_.values(feed)[0]);
+  });
+  return feedIds;
+};

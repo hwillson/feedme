@@ -16,8 +16,17 @@ Template.editFeed.events({
 
 AutoForm.hooks({
   feedForm: {
+
+    before: {
+      insert: function(doc, template) {
+        doc.user_id = Meteor.userId();
+        return doc;
+      }
+    },
+
     onSuccess: function (operation, result, template) {
       Meteor.call('refreshFeeds');
     }
+
   }
 });

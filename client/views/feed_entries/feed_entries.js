@@ -8,8 +8,7 @@ function removeFeedEntry(id) {
 Template.feedEntries.created = function () {
 	// Wire up 'd' keybinding to remove the most recent feed entry.
 	Meteor.Keybindings.addOne('d', function() {
-		var mostRecentEntry =
-			FeedEntries.findOne({ read: { $ne: true } }, { sort: { date: -1 } });
+		var mostRecentEntry = FeedEntries.mostRecentEntry();
 		if (mostRecentEntry) {
 			removeFeedEntry(mostRecentEntry._id);
 		}
@@ -25,8 +24,7 @@ Template.feedEntries.helpers({
 	 */
 	feedEntries: function () {
 
-		var entries =
-			FeedEntries.find({ read: { $ne: true } }, { sort: { date: -1 } });
+    var entries = FeedEntries.authorizedEntries();
 
 		return entries.map(function (entry) {
 
