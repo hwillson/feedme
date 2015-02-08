@@ -1,18 +1,36 @@
-function removeFeedEntry(id) {
+function markEntryAsRead(id) {
 	if (id) {
 		FeedEntries.update(id, { $set: { read: true } });
-		//FeedEntries.remove(id);
+	}
+}
+
+function markEntryAsUnread(id) {
+	if (id) {
+		FeedEntries.update(id, { $set: { read: false } });
 	}
 }
 
 Template.feedEntries.created = function () {
-	// Wire up 'd' keybinding to remove the most recent feed entry.
+
+	var readEntryId = null;
+
+	// Wire up 'd' keybinding to mark the most recent feed entry as read
 	Meteor.Keybindings.addOne('d', function() {
 		var mostRecentEntry = FeedEntries.mostRecentEntry();
 		if (mostRecentEntry) {
-			removeFeedEntry(mostRecentEntry._id);
+			markEntryAsRead(mostRecentEntry._id);
+			readEntryId = mostRecentEntry._id;
 		}
 	});
+
+	// Wire up 'u' keybinding to mark the last read feed entry as unread.
+	Meteor.Keybindings.addOne('u', function() {
+		if (readEntryId) {
+			markEntryAsUnread(readEntryId);
+			readEntryId = null;
+		}
+	});
+
 };
 
 Template.feedEntries.helpers({
@@ -51,7 +69,7 @@ Template.feedEntries.helpers({
 Template.feedEntries.events({
 
 	'click .js-remove': function (e) {
-		removeFeedEntry(this._id);
+		markEntryAsRead(this._id);
 	}
 
 });
