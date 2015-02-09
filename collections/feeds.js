@@ -1,10 +1,8 @@
 Feeds = new Mongo.Collection('feeds');
 
-Feeds.attachSchema(new SimpleSchema({
-  // _id: {
-  //   type: String,
-  //   label: '_id'
-  // },
+FeedMe.Schema = {};
+
+FeedMe.Schema.feedSchema = new SimpleSchema({
   name: {
     type: String,
     label: 'Name'
@@ -29,9 +27,12 @@ Feeds.attachSchema(new SimpleSchema({
     defaultValue: 'Rss'
   },
   user_id: {
-    type: String
+    type: String,
+    label: 'User ID'
   }
-}));
+});
+
+Feeds.attachSchema(FeedMe.Schema.feedSchema);
 
 Feeds.authorizedFeedIds = function () {
   var feedIds = [];
