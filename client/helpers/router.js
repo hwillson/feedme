@@ -11,6 +11,15 @@ Router.onBeforeAction(function () {
 });
 
 // Show all feed entries by default.
-Router.route('/', function () {
-  this.render('feedEntries');
+Router.route('/', {
+
+	subscriptions: function () {
+		this.subscribe('feeds');
+		this.subscribe('feedEntries');
+	},
+
+	action: function () {
+		this.render('feedEntries');
+	}
+
 });
