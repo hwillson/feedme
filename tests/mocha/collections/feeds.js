@@ -54,14 +54,14 @@ if (!(typeof MochaWeb === 'undefined')) {
 							});
 						});
 
-						it('Feed type is mandatory', function () {
+						it('Feed type should be mandatory', function () {
 							this.feed.type = null;
 							Feeds.insert(this.feed, function (error, result) {
 								chai.expect(error.message).to.equal('Feed Type is required');
 							});
 						});
 
-						it('Feed user ID is mandatory', function () {
+						it('Feed user ID should be mandatory', function () {
 							this.feed.user_id = null;
 							Feeds.insert(this.feed, function (error, result) {
 								chai.expect(error.message).to.equal('User ID is required');
@@ -69,6 +69,32 @@ if (!(typeof MochaWeb === 'undefined')) {
 						});
 
 					});
+
+          describe('#authorizedFeedIds', function () {
+
+            it('should return an empty array if not logged in', function () {
+              var feedIds = Feeds.authorizedFeedIds();
+              chai.expect(feedIds.length).to.equal(0);
+            });
+
+            it(
+              'should return an empty array if logged in but not authorized for any feeds',
+              function () {
+                // var feedIds = Feeds.authorizedFeedIds();
+                // chai.expect(feedIds.length).to.equal(0);
+              }
+            );
+
+            it(
+              'should return an array of feed IDs the current user has access to',
+              function () {
+                // var feedIds = Feeds.authorizedFeedIds();
+                // chai.expect(feedIds.length).to.not.equal(0);
+              }
+            );
+
+
+          });
 
 				});
 
