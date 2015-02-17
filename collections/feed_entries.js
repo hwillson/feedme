@@ -1,29 +1,29 @@
-FeedEntries = new Mongo.Collection('feed_entries');
+FeedMe.FeedEntries = new Mongo.Collection('feed_entries');
 
-FeedEntries.authorizedEntries = function () {
+FeedMe.FeedEntries.authorizedEntries = function () {
 	return this.find({
-		feed_id: { $in: Feeds.authorizedFeedIds() },
+		feed_id: { $in: FeedMe.Feeds.authorizedFeedIds() },
 		read: { $ne: true }
 	}, { sort: { date: -1 } });
 };
 
-FeedEntries.mostRecentEntry = function () {
+FeedMe.FeedEntries.mostRecentEntry = function () {
 	return this.findOne({
-		feed_id: { $in: Feeds.authorizedFeedIds() },
+		feed_id: { $in: FeedMe.Feeds.authorizedFeedIds() },
 		read: { $ne: true }
 	}, { sort: { date: -1 } });
 };
 
-FeedEntries.entryCount = function () {
+FeedMe.FeedEntries.entryCount = function () {
 	return this.authorizedEntries().count();
 };
 
-FeedEntries.markAllRead = function () {
+FeedMe.FeedEntries.markAllRead = function () {
 	this.update({
-		feed_id: { $in: Feeds.authorizedFeedIds() }
+		feed_id: { $in: FeedMe.Feeds.authorizedFeedIds() }
 	}, { $set: { read: true } }, { multi: true });
 };
 
-FeedEntries.removeEntriesForFeed = function (feedId) {
+FeedMe.FeedEntries.removeEntriesForFeed = function (feedId) {
   this.remove({ feed_id: feedId });
 };

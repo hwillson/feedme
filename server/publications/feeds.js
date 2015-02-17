@@ -1,3 +1,3 @@
 Meteor.publish('feeds', function () {
-  return Feeds.find({});
+  return FeedMe.Feeds.find({});
 });

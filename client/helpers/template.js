@@ -1,0 +1,1 @@
+Template.registerHelper('FeedMe', FeedMe);

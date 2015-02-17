@@ -1,8 +1,6 @@
-Feeds = new Mongo.Collection('feeds');
+FeedMe.Feeds = new Mongo.Collection('feeds');
 
-FeedMe.Schema = {};
-
-FeedMe.Schema.feedSchema = new SimpleSchema({
+FeedMe.feedSchema = new SimpleSchema({
   name: {
     type: String,
     label: 'Name'
@@ -32,9 +30,9 @@ FeedMe.Schema.feedSchema = new SimpleSchema({
   }
 });
 
-Feeds.attachSchema(FeedMe.Schema.feedSchema);
+FeedMe.Feeds.attachSchema(FeedMe.feedSchema);
 
-Feeds.authorizedFeedIds = function () {
+FeedMe.Feeds.authorizedFeedIds = function () {
   var feedIds = [];
   var feeds =
     this.find({ user_id: Meteor.userId() }, { fields: { _id: 1 }}).fetch();

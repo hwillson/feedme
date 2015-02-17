@@ -2,8 +2,8 @@ Meteor.startup(function () {
 
 	// Initialize the "danielqiu:feed" package with our collections
 	Feed.collections({
-		feeds: Feeds,
-  	feed_entries: FeedEntries
+		feeds: FeedMe.Feeds,
+  	feed_entries: FeedMe.FeedEntries
 	});
 
 	// // If no feeds exist seed the feed list

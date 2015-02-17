@@ -1,12 +1,12 @@
 function markEntryAsRead(id) {
 	if (id) {
-		FeedEntries.update(id, { $set: { read: true } });
+		FeedMe.FeedEntries.update(id, { $set: { read: true } });
 	}
 }
 
 function markEntryAsUnread(id) {
 	if (id) {
-		FeedEntries.update(id, { $set: { read: false } });
+		FeedMe.FeedEntries.update(id, { $set: { read: false } });
 	}
 }
 
@@ -16,7 +16,7 @@ Template.feedEntries.created = function () {
 
 	// Wire up 'd' keybinding to mark the most recent feed entry as read
 	Meteor.Keybindings.addOne('d', function() {
-		var mostRecentEntry = FeedEntries.mostRecentEntry();
+		var mostRecentEntry = FeedMe.FeedEntries.mostRecentEntry();
 		if (mostRecentEntry) {
 			markEntryAsRead(mostRecentEntry._id);
 			readEntryId = mostRecentEntry._id;
@@ -42,7 +42,7 @@ Template.feedEntries.helpers({
 	 */
 	feedEntries: function () {
 
-    var entries = FeedEntries.authorizedEntries();
+    var entries = FeedMe.FeedEntries.authorizedEntries();
 
 		return entries.map(function (entry) {
 

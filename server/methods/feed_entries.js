@@ -1,11 +1,11 @@
 Meteor.methods({
 
   removeAllFeedEntries: function () {
-    FeedEntries.markAllRead();
+    FeedMe.FeedEntries.markAllRead();
   },
 
   removeFeedEntriesForFeed: function (feedId) {
-    FeedEntries.removeEntriesForFeed
+    FeedMe.FeedEntries.removeEntriesForFeed
   }
 
 });

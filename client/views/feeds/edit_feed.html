@@ -2,7 +2,7 @@
   <div class="ft clearfix">
     {{#if selectedFeed}}
       <h2 class="ft-title">Edit Feed</h2>
-      {{#autoForm collection="Feeds" doc=selectedFeed id="feedForm"
+      {{#autoForm collection=FeedMe.Feeds doc=selectedFeed id="feedForm"
           type="update"}}
         <fieldset>
           {{> afQuickField name="name"}}
@@ -18,7 +18,7 @@
       {{/autoForm}}
     {{else}}
       <h2 class="ft-title">Add Feed</h2>
-      {{#autoForm collection="Feeds" id="feedForm" type="insert"}}
+      {{#autoForm collection=FeedMe.Feeds id="feedForm" type="insert"}}
         <fieldset>
           {{> afQuickField name="name"}}
           {{> afQuickField name="category"}}

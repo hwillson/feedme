@@ -1,7 +1,7 @@
 Template.editFeed.helpers({
 
   selectedFeed: function () {
-    return Feeds.findOne(Session.get('selectedFeedId'));
+    return FeedMe.Feeds.findOne(Session.get('selectedFeedId'));
   }
 
 });
