@@ -1,5 +1,19 @@
 FeedMe.FeedEntries = new Mongo.Collection('feed_entries');
 
+FeedMe.FeedEntries.allow({
+	update: function (userId, doc, fields, modifier) {
+		var authorizedEntryIds =
+			FeedMe.FeedEntries.authorizedEntries().map(function (doc) {
+				return doc._id;
+			});
+		var canUpdate = false;
+		if (authorizedEntryIds.indexOf(doc._id) > -1) {
+			canUpdate = true;
+		}
+		return canUpdate;
+  }
+})
+
 FeedMe.FeedEntries.authorizedEntries = function () {
 	return this.find({
 		feed_id: { $in: FeedMe.Feeds.authorizedFeedIds() },

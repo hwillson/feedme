@@ -32,6 +32,32 @@ FeedMe.feedSchema = new SimpleSchema({
 
 FeedMe.Feeds.attachSchema(FeedMe.feedSchema);
 
+FeedMe.Feeds.allow({
+
+  insert: function () {
+    return true;
+  },
+
+  update: function (userId, doc, fields, modifier) {
+    var canUpdate = false;
+    var authorizedFeedIds = FeedMe.Feeds.authorizedFeedIds();
+    if (authorizedFeedIds.indexOf(doc._id) > -1) {
+      canUpdate = true;
+    }
+    return canUpdate;
+  },
+
+  remove: function (userId, doc) {
+    var canRemove = false;
+    var authorizedFeedIds = FeedMe.Feeds.authorizedFeedIds();
+    if (authorizedFeedIds.indexOf(doc._id) > -1) {
+      canRemove = true;
+    }
+    return canRemove;
+  }
+
+});
+
 FeedMe.Feeds.authorizedFeedIds = function () {
   var feedIds = [];
   var feeds =
