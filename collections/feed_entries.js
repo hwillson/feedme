@@ -3,7 +3,7 @@ FeedMe.FeedEntries = new Mongo.Collection('feed_entries');
 FeedMe.FeedEntries.allow({
 	update: function (userId, doc, fields, modifier) {
 		var authorizedEntryIds =
-			FeedMe.FeedEntries.authorizedEntries().map(function (doc) {
+			FeedMe.FeedEntries.allAuthorizedEntries().map(function (doc) {
 				return doc._id;
 			});
 		var canUpdate = false;
@@ -18,6 +18,12 @@ FeedMe.FeedEntries.authorizedEntries = function () {
 	return this.find({
 		feed_id: { $in: FeedMe.Feeds.authorizedFeedIds() },
 		read: { $ne: true }
+	}, { sort: { date: -1 } });
+};
+
+FeedMe.FeedEntries.allAuthorizedEntries = function () {
+	return this.find({
+		feed_id: { $in: FeedMe.Feeds.authorizedFeedIds() }
 	}, { sort: { date: -1 } });
 };
 
