@@ -4,6 +4,8 @@
 
 FeedMe is a dead simple distraction free RSS reader that keeps the focus on reading. The interface is clean, functional and intentionally limited to make sure feed entries can be cleared out quickly and effectively. Built using [Meteor](http://meteor.com).
 
+![FeedMe screenshot](https://github.com/hwillson/feedme/blob/master/public/img/feedme_screenshot.png "FeedMe")
+
 ## Feed Where?
 
 Trying FeedMe out is pretty straightforward.
